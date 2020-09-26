@@ -73,9 +73,9 @@ const Calendar = ({ openPopup }) => {
             let newDate = new Date(actualDate.setDate(-count))
             month = moment(newDate).format('MMMM')
             year = moment(newDate).format('YYYY')
-        } else if ((rowIndex + 1) * 7 - firstDate.current - (7 - cellIndex) > getLastDay()) {
-            let newDate = new Date(actualDate.setDate(35 - firstDate.current - (7 - cellIndex)))
-            newDate = actualDate.getDate().toString()
+        } else if (35 - firstDate.current - (7 - cellIndex) + 1 > getLastDay()) {
+            let newDate = new Date(actualDate.setDate(35 - firstDate.current - (7 - cellIndex) + 1))
+            date = newDate.getDate().toString()
             month = moment(newDate).format('MMMM')
             year = moment(newDate).format('YYYY')
         }
