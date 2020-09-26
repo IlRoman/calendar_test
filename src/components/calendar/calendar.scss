@@ -1,0 +1,76 @@
+@import "../../breakpoints.scss";
+
+.calendar {
+    width: 467px;
+    height: 491px;
+
+    @include for-small-up {
+        width: 320px;
+        height: 240px;
+    }
+
+    @include for-e-small-up {
+        width: 100%;
+        height: 100%;
+        overflow: scroll;
+    }
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        flex-grow: 1;
+        align-items: center;
+    }
+
+    &__cell {
+        color: white;
+        font-size: 17px;
+        font-weight: 500;
+        cursor: pointer;
+        width: 52px;
+        height: 52px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 17px;
+        font-weight: 500;
+
+        &_today {
+            background-color: #fdd000;
+            color: black;
+        }
+
+        &_active {
+        }
+    }
+}
+
+.table-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 448px;
+}
+
+.calendar-nav {
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+    color: #dfdfdf;
+    height: 23px;
+    align-items: center;
+    line-height: 23px;
+    margin-bottom: 20px;
+
+    &__btn {
+        background-color: #272829;
+        border: none;
+        color: white;
+        font-size: 20px;
+        cursor: pointer;
+    }
+
+    &__month {
+        font-size: 19px;
+    }
+}

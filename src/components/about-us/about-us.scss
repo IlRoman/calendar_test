@@ -1,0 +1,18 @@
+.about-us {
+    margin: 0 275px;
+
+    &__header {
+        margin-bottom: 70px;
+        font-size: 34px;
+        color: #3d3d3d;
+    }
+
+    p {
+        line-height: 34px;
+        margin-bottom: 45px;
+        color: #3d3d3d;
+        font-size: 20px;
+        letter-spacing: 0.4px;
+        font-weight: 300;
+    }
+}

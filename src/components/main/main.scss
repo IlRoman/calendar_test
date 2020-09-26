@@ -1,0 +1,43 @@
+.main {
+    display: flex;
+    justify-content: flex-end;
+    height: calc(100vh - 172px);
+    position: relative;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.text-container {
+    margin: 192px 33px 0 0;
+    margin-top: 192px;
+    text-align: right;
+    width: 518px;
+
+    &__top-text {
+        color: #fdd000;
+        font-size: 50px;
+        text-transform: uppercase;
+        font-weight: 700;
+        letter-spacing: 3.5px;
+        line-height: 64px;
+    }
+
+    &__bottom-text {
+        margin-top: 44px;
+        color: #dfdfdf;
+        font-weight: 300;
+        font-size: 30px;
+        letter-spacing: 0.6px;
+        line-height: 40px;
+    }
+}
+
+.calendar-wrapper {
+    height: 100%;
+    width: 695px;
+    background-color: #272829;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
