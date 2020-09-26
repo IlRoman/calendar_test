@@ -25,6 +25,10 @@
         width: 300px;
     }
 
+    @include for-e-small-up {
+        width: 250px;
+    }
+
     &__close-btn {
         position: absolute;
         top: 0;
