@@ -1,5 +1,4 @@
 import { createStore, compose, applyMiddleware } from 'redux'
-import { logger } from 'redux-logger'
 import { rootReducer } from './redux/reducer'
 
 const composeEnhancers =
@@ -8,4 +7,4 @@ const composeEnhancers =
 
 export default createStore(
     rootReducer,
-    composeEnhancers(applyMiddleware(logger)));
+    composeEnhancers(applyMiddleware()));

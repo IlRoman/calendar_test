@@ -39,8 +39,8 @@ const Calendar = ({ openPopup }) => {
             let count = firstDate.current - cellIndex - 1
             date = new Date(date.setDate(-count))
             return date.getDate()
-        } else if ((rowIndex + 1) * 7 - firstDate.current - (7 - cellIndex) > getLastDay()) {
-            date = new Date(date.setDate(35 - firstDate.current - (7 - cellIndex)))
+        } else if (35 - firstDate.current - (7 - cellIndex) + 1 > getLastDay()) {
+            date = new Date(date.setDate(35 - firstDate.current - (7 - cellIndex) + 1))
             date = date.getDate().toString()
             if (date.length === 1) {
                 return '0' + date
@@ -62,6 +62,27 @@ const Calendar = ({ openPopup }) => {
         } else return 'calendar__cell'
     }
 
+    const popupHandler = (elem, rowIndex, cellIndex) => {
+        let actualDate = new Date(currentDate.toString())
+        let month = moment(currentDate).format('MMMM')
+        let date = getCellDate(elem, rowIndex, cellIndex)
+        let year = moment(currentDate).format('YYYY')
+
+        if (rowIndex === 0 && cellIndex < firstDate.current) {
+            let count = firstDate.current - cellIndex - 1
+            let newDate = new Date(actualDate.setDate(-count))
+            month = moment(newDate).format('MMMM')
+            year = moment(newDate).format('YYYY')
+        } else if ((rowIndex + 1) * 7 - firstDate.current - (7 - cellIndex) > getLastDay()) {
+            let newDate = new Date(actualDate.setDate(35 - firstDate.current - (7 - cellIndex)))
+            newDate = actualDate.getDate().toString()
+            month = moment(newDate).format('MMMM')
+            year = moment(newDate).format('YYYY')
+        }
+
+        openPopup(month, date, year)
+    }
+
     return (
         <div className="calendar">
             <div className="calendar-nav">
@@ -80,7 +101,7 @@ const Calendar = ({ openPopup }) => {
                                         className={getClassNameForDate(elem, rowIndex, cellIndex)}
                                         key={cellIndex}
                                         id={`_${cellIndex}`}
-                                        onClick={() => openPopup(moment(currentDate).format('MMMM'), getCellDate(elem, rowIndex, cellIndex), moment(currentDate).format('YYYY'))}
+                                        onClick={() => popupHandler(elem, rowIndex, cellIndex)}
                                     >
                                         {getCellDate(elem, rowIndex, cellIndex)}
                                     </div>)
