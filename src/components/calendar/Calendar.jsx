@@ -54,12 +54,15 @@ const Calendar = ({ openPopup }) => {
     }
 
     const getClassNameForDate = (elem, rowIndex, cellIndex) => {
-        // console.log(getCellDate(elem, rowIndex, cellIndex).toString(), moment().format('D'))
         if (currentDate.getMonth() === new Date().getMonth()
             && currentDate.getFullYear().toString() === moment().format('YYYY')
             && getCellDate(elem, rowIndex, cellIndex).toString() === moment().format('D')
         ) {
             return 'calendar__cell calendar__cell_today'
+        } else if (rowIndex === 0 && getFirstDay() !== elem && cellIndex < firstDate.current) {
+            return 'calendar__cell calendar__cell_dark'
+        } else if (rowIndex === 4 && 35 - firstDate.current - (7 - cellIndex) + 1 > getLastDay()) {
+            return 'calendar__cell calendar__cell_dark'
         } else return 'calendar__cell'
     }
 
