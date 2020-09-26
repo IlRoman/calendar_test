@@ -39,7 +39,7 @@ const Calendar = ({ openPopup }) => {
             let count = firstDate.current - cellIndex - 1
             date = new Date(date.setDate(-count))
             return date.getDate()
-        } else if (35 - firstDate.current - (7 - cellIndex) + 1 > getLastDay()) {
+        } else if (rowIndex === 4 && 35 - firstDate.current - (7 - cellIndex) + 1 > getLastDay()) {
             date = new Date(date.setDate(35 - firstDate.current - (7 - cellIndex) + 1))
             date = date.getDate().toString()
             if (date.length === 1) {
@@ -54,6 +54,7 @@ const Calendar = ({ openPopup }) => {
     }
 
     const getClassNameForDate = (elem, rowIndex, cellIndex) => {
+        // console.log(getCellDate(elem, rowIndex, cellIndex).toString(), moment().format('D'))
         if (currentDate.getMonth() === new Date().getMonth()
             && currentDate.getFullYear().toString() === moment().format('YYYY')
             && getCellDate(elem, rowIndex, cellIndex).toString() === moment().format('D')
