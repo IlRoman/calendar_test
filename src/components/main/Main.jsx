@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import './main.scss'
 import Calendar from '../calendar/Calendar'

@@ -7,13 +7,17 @@
     height: 150px;
     margin-bottom: 22px;
 
+    @include for-small-up {
+        height: 100px;
+    }
+
     &__logo {
         margin-left: 110px;
         width: 165px;
-        height: 50px;
 
         @include for-small-up {
             margin-left: 30px;
+            width: 100px;
         }
     }
 
@@ -31,14 +35,18 @@
         font-weight: 600;
 
         @include for-medium-up {
+            align-items: flex-end;
             flex-direction: column;
             margin-right: 30px;
+            text-align: end;
+        }
+
+        @include for-small-up {
         }
 
         @include for-e-small-up {
             flex-direction: column;
             margin-right: 30px;
-            align-items: flex-start;
             margin-left: 20px;
             margin-bottom: 30px;
         }

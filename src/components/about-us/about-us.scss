@@ -1,5 +1,15 @@
+@import "../../breakpoints.scss";
+
 .about-us {
     margin: 0 275px;
+
+    @include for-large-up {
+        margin: 10px 110px;
+    }
+
+    @include for-small-up {
+        margin: 10px 25px;
+    }
 
     &__header {
         margin-bottom: 70px;
